@@ -127,9 +127,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Auth\AdminCheck.cs" />
+    <Compile Include="Auth\EmployeeCHeck.cs" />
+    <Compile Include="Auth\LoginCheck.cs" />
+    <Compile Include="Auth\RestrurentCheck.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoggedController.cs" />
     <Compile Include="Controllers\RestrurentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -142,10 +147,15 @@
     <Compile Include="Migrations\202303201617498_d1.designer.cs">
       <DependentUpon>202303201617498_d1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303211830577_locationadded.cs" />
+    <Compile Include="Migrations\202303211830577_locationadded.designer.cs">
+      <DependentUpon>202303211830577_locationadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\CollectRequest.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\RequestDashboard.cs" />
     <Compile Include="Models\RequestProcessing.cs" />
     <Compile Include="Models\Restaurant.cs" />
@@ -193,6 +203,11 @@
     <Content Include="Views\Admin\Requests.cshtml" />
     <Content Include="Views\Admin\GetEmployee.cshtml" />
     <Content Include="Views\Employee\List.cshtml" />
+    <Content Include="Views\Logged\Login.cshtml" />
+    <Content Include="Views\Employee\CreateEmployee.cshtml" />
+    <Content Include="Views\Admin\GetProcess.cshtml" />
+    <Content Include="Views\Employee\ReqDet.cshtml" />
+    <Content Include="Views\Restrurent\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -216,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303201617498_d1.resx">
       <DependentUpon>202303201617498_d1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211830577_locationadded.resx">
+      <DependentUpon>202303211830577_locationadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -5,7 +5,12 @@
 }
 
 <h2>Dashboard</h2>
-<a href="/Admin/Requests">Requests</a>
+@if (TempData["msg"] != null)
+{
+    <p>@TempData["msg"]</p>
+}
+<a href="/Admin/GetProcess">Previous Request</a>
+<a href="/Logged/Logout">Logout</a>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -26,26 +31,41 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FoodName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Qty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Expirydate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            <a href="Request/@item.Id">Request This</a>
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expirydate)
+            </td>
+            <td>
+                @if (item.Expirydate < DateTime.Now)
+                {
+                    <p>Expired</p>
+                }
+                else
+                {
+                    if (item.Qty <= 0)
+                    {
+                        <p>Finished</p>
+                    }
+    else { 
+                    <a href="Request/@item.Id">Request This</a>}
+                }
+
+            </td>
+        </tr>
+    }
 
 </table>
+<a href="/Admin/Requests">Requests @if (Session["count"] != null) { <p>@Session["count"]</p>}</a>
+    
+

@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<zeroHunger.Models.RequestDashboard>
 
 @{
-    ViewBag.Title = "Requests";
+    ViewBag.Title = "List";
 }
 
-<h2>Requests</h2>
+<h2>List</h2>
 <a href="/Logged/Logout">Logout</a>
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -41,9 +41,11 @@
             @Html.DisplayFor(modelItem => item.Expirydate)
         </td>
         <td>
-            
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
-    <a href="/Admin/GetEmployee">Get Employee</a>
+
 </table>

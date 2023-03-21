@@ -14,6 +14,7 @@ namespace zeroHunger.Models
         [ForeignKey("RequestProcessing")]
         public int ProcessingId { get; set; }
         public int Qty { get; set; }
+        public string Location { get; set; }
         public virtual RequestDashboard RequestDashboard { get; set; }
         public virtual RequestProcessing RequestProcessing { get; set; }
     }

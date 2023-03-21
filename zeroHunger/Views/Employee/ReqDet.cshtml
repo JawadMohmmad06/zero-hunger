@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<zeroHunger.Models.RequestProcessing>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "ReqDet";
 }
 
-<h2>List</h2>
+<h2>ReqDet</h2>
 <a href="/Logged/Logout">Logout</a>
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -35,7 +35,8 @@
             @Html.DisplayFor(modelItem => item.Location)
         </td>
         <td>
-            <a href="/Employee/ReqDet/@item.Id">Details</a>
+            <a href="/Employee/RecievedFood/@item.Id">Food Recived</a> ||
+            <a href="/Employee/DeliveredFood/@item.Id">Food Deliverd</a>
         </td>
     </tr>
 }
